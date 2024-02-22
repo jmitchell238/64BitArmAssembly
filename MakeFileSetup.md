@@ -17,7 +17,7 @@
 ---
 ```makefile
 HelloWorld: HelloWorld.o
-	ld -o HelloWorld HelloWorld.o -lSystem -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _start -arch arm64 
+	ld -o HelloWorld HelloWorld.o -lSystem -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _start -arch arm64
 
 HelloWorld.o: HelloWorld.s
 	as -arch arm64 -o HelloWorld.o HelloWorld.s
@@ -30,7 +30,7 @@ HelloWorld.o: HelloWorld.s
     as -arch arm64 -o $@ $<
 
 HelloWorld: HelloWorld.o
-    ld -o HelloWorld HelloWorld.o -lSystem -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _start -arch arm64 
+    ld -o HelloWorld HelloWorld.o -lSystem -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _start -arch arm64
 ```
 
 ### Switch Breakdown:
@@ -41,8 +41,4 @@ HelloWorld: HelloWorld.o
 - `-sysroot`: In order to find libSystem.dylib, it is mandatory to tell our linker where to find it. It seems this was not necessary on macOS 10.15 because "New in macOS Big Sur 11 beta, the system ships with a built-in dynamic linker cache of all system-provided libraries. As part of this change, copies of dynamic libraries are no longer present on the filesystem.". We use xcrun -sdk macosx --show-sdk-path to dynamically use the currently active version of Xcode.
 - `-e _start`: Darwin expects an entrypoint _main. In order to keep the sample both as close as possible to the book, and to allow it's use within the C-Sample from Chapter 3, I opted to keep _start and tell the linker that this is the entry point we want to use
 - `-arch arm64`: We want to build an executable for arm64. Since we are using a cross-compiler, we need to tell the linker which architecture we want to build for. Since we are building for arm64, we need to use the arm64 version of libSystem.dylib. If we were to build for x86_64, we would need to use the x86_64 version of libSystem.dylib. You can leave this off when running on Apple Silicon.
-- 
-
-
-
-
+-

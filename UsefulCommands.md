@@ -26,7 +26,7 @@
 - `breakpoint list`: List all the breakpoints.
 
 - `br l`: Also list all the breakpoints.
-  
+
 #### Delete Breakpoint
 ---
 - `breakpoint delete <breakpoint_id/number>`: Deletes the specified breakpoint.
@@ -45,7 +45,7 @@
 ---
 - Open file in lldb `lldb <file_name>`
 
-- `target create <file_name>`: Creates a target for the specified file. 
+- `target create <file_name>`: Creates a target for the specified file.
   - You should see this after you open the file. You can re-run this command to be sure.
 
 - Disassemble our file at a specific function
@@ -88,6 +88,3 @@
     - `-x`: Display in hexadecimal format.
   - `-c`: Number of columns.
   - `-s`: Number of bytes per column.
-
-
-

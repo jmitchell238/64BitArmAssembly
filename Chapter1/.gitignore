@@ -1,1 +1,3 @@
-hello
+# Ignore the hello and hello.o files in the code-examples directory
+code-examples/hello
+code-examples/hello.o
