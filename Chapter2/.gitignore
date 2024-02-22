@@ -1,3 +1,7 @@
-movexamps
-addexamp1
-addexamp2
+# Ignore the specified files in the code-examples directory for Chapter2
+code-examples/movexamps
+code-examples/movexamps.o
+code-examples/addexamp1
+code-examples/addexamp1.o
+code-examples/addexamp2
+code-examples/addexamp2.o
