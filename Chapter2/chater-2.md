@@ -20,6 +20,14 @@ make
 
 This command will build all programs defined in the makefile.
 
+This will compile the hello.s file and generate an executable named hello.
+
+If you have already built the program, then this won't do anything, since make sees that the executable is older than the .o file and that the .o file is older than the .s file. If you want to force a rebuild, you can use the following command:
+
+```bash
+make -B
+```
+
 To clean up the directory and remove object files and executables, you can use the following command:
 
 ```bash
